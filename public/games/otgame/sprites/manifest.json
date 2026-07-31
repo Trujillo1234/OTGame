@@ -1,0 +1,1818 @@
+{
+  "version": 1,
+  "inputWindowMs": 300,
+  "controls": {
+    "movement": [
+      "ArrowLeft",
+      "ArrowRight"
+    ],
+    "jump": "A",
+    "punch": "S",
+    "kick": "Z",
+    "power": "X",
+    "jumpPunch": "AS",
+    "jumpKick": "AZ"
+  },
+  "characters": {
+    "emmy": {
+      "displayName": "Emmy",
+      "regularLook": "short bob, dog shirt",
+      "powerLook": "pink BJJ gi",
+      "energyColor": "pink",
+      "defaultFacing": "right",
+      "animations": {
+        "idle": {
+          "fps": 8,
+          "loop": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/idle/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/idle/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/idle/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/idle/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/idle/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/idle/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/idle.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "run_forward": {
+          "fps": 14,
+          "loop": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/run_forward/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/run_forward/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/run_forward/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/run_forward/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/run_forward/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/run_forward/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/run_forward.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "retreat": {
+          "fps": 12,
+          "loop": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/retreat/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/retreat/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/retreat/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/retreat/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/retreat/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/retreat/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/retreat.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "jump": {
+          "fps": 14,
+          "loop": false,
+          "input": "A",
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/jump/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/jump/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/jump/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/jump/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/jump/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/jump/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/jump.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "punch": {
+          "fps": 18,
+          "loop": false,
+          "input": "S",
+          "activeFrames": [
+            2,
+            3
+          ],
+          "hitStopMs": 65,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/punch/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/punch/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/punch/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/punch/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/punch/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/punch/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/punch.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "kick": {
+          "fps": 16,
+          "loop": false,
+          "input": "Z",
+          "activeFrames": [
+            3
+          ],
+          "hitStopMs": 80,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/kick/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/kick/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/kick/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/kick/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/kick/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/kick/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/kick.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "guard_dodge": {
+          "fps": 14,
+          "loop": false,
+          "input": "X",
+          "holdFrame": 2,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/guard_dodge/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/guard_dodge/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/guard_dodge/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/guard_dodge/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/guard_dodge/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/guard_dodge/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/guard_dodge.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "jump_punch": {
+          "fps": 17,
+          "loop": false,
+          "input": "AS",
+          "activeFrames": [
+            3
+          ],
+          "hitStopMs": 75,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/jump_punch/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/jump_punch/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/jump_punch/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/jump_punch/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/jump_punch/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/jump_punch/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/jump_punch.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "jump_kick": {
+          "fps": 16,
+          "loop": false,
+          "input": "AZ",
+          "activeFrames": [
+            3
+          ],
+          "hitStopMs": 90,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/jump_kick/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/jump_kick/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/jump_kick/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/jump_kick/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/jump_kick/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/jump_kick/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/jump_kick.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "hit_reaction": {
+          "fps": 14,
+          "loop": false,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/hit_reaction/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/hit_reaction/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/hit_reaction/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/hit_reaction/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/hit_reaction/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/hit_reaction/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/hit_reaction.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "knockdown_recover": {
+          "fps": 11,
+          "loop": false,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/knockdown_recover/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/knockdown_recover/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/knockdown_recover/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/knockdown_recover/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/knockdown_recover/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/knockdown_recover/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/knockdown_recover.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "ko": {
+          "fps": 10,
+          "loop": false,
+          "holdLastFrame": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/ko/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/ko/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/ko/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/ko/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/ko/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/ko/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/ko.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "powerup": {
+          "fps": 12,
+          "loop": false,
+          "input": "X",
+          "requiresState": "regular",
+          "frameCount": 12,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/powerup/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-05.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-06.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-07.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-08.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-09.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-10.png",
+            "/games/otgame/sprites/emmy/animations/powerup/frame-11.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/powerup.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "powered_idle": {
+          "fps": 8,
+          "loop": true,
+          "requiresState": "powered",
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/powered_idle/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/powered_idle/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/powered_idle/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/powered_idle/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/powered_idle/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/powered_idle/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/powered_idle.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "special_sx": {
+          "fps": 18,
+          "loop": false,
+          "input": "SX",
+          "requiresState": "powered",
+          "activeFrames": [
+            2,
+            3,
+            4
+          ],
+          "hitStopMs": 95,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/special_sx/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/special_sx/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/special_sx/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/special_sx/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/special_sx/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/special_sx/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/special_sx.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "counter_xs": {
+          "fps": 18,
+          "loop": false,
+          "input": "XS",
+          "requiresState": "powered",
+          "activeFrames": [
+            3,
+            4
+          ],
+          "hitStopMs": 105,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/counter_xs/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/counter_xs/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/counter_xs/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/counter_xs/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/counter_xs/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/counter_xs/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/counter_xs.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "super_zx": {
+          "fps": 20,
+          "loop": false,
+          "input": "ZX",
+          "requiresState": "powered",
+          "activeFrames": [
+            2,
+            3,
+            4
+          ],
+          "hitStopMs": 135,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/super_zx/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/super_zx/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/super_zx/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/super_zx/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/super_zx/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/super_zx/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/super_zx.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "victory": {
+          "fps": 10,
+          "loop": false,
+          "holdLastFrame": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/victory/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/victory/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/victory/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/victory/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/victory/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/victory/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/victory.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "signature_throw": {
+          "fps": 15,
+          "loop": false,
+          "input": "X",
+          "requiresState": "powered",
+          "activeFrames": [
+            5,
+            6,
+            7
+          ],
+          "hitStopMs": 135,
+          "frameCount": 12,
+          "frames": [
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-00.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-01.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-02.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-03.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-04.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-05.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-06.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-07.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-08.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-09.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-10.png",
+            "/games/otgame/sprites/emmy/animations/signature_throw/frame-11.png"
+          ],
+          "strip": "/games/otgame/sprites/emmy/strips/signature_throw.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        }
+      },
+      "preview": "/games/otgame/sprites/preview-emmy.png"
+    },
+    "opie": {
+      "displayName": "Opie",
+      "regularLook": "tied-back hair, sunglasses, pink shirt",
+      "powerLook": "white fencing suit",
+      "energyColor": "blue",
+      "defaultFacing": "right",
+      "mirrorAtRoundStart": true,
+      "animations": {
+        "idle": {
+          "fps": 8,
+          "loop": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/idle/frame-00.png",
+            "/games/otgame/sprites/opie/animations/idle/frame-01.png",
+            "/games/otgame/sprites/opie/animations/idle/frame-02.png",
+            "/games/otgame/sprites/opie/animations/idle/frame-03.png",
+            "/games/otgame/sprites/opie/animations/idle/frame-04.png",
+            "/games/otgame/sprites/opie/animations/idle/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/idle.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "run_forward": {
+          "fps": 14,
+          "loop": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/run_forward/frame-00.png",
+            "/games/otgame/sprites/opie/animations/run_forward/frame-01.png",
+            "/games/otgame/sprites/opie/animations/run_forward/frame-02.png",
+            "/games/otgame/sprites/opie/animations/run_forward/frame-03.png",
+            "/games/otgame/sprites/opie/animations/run_forward/frame-04.png",
+            "/games/otgame/sprites/opie/animations/run_forward/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/run_forward.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "retreat": {
+          "fps": 12,
+          "loop": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/retreat/frame-00.png",
+            "/games/otgame/sprites/opie/animations/retreat/frame-01.png",
+            "/games/otgame/sprites/opie/animations/retreat/frame-02.png",
+            "/games/otgame/sprites/opie/animations/retreat/frame-03.png",
+            "/games/otgame/sprites/opie/animations/retreat/frame-04.png",
+            "/games/otgame/sprites/opie/animations/retreat/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/retreat.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "jump": {
+          "fps": 14,
+          "loop": false,
+          "input": "A",
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/jump/frame-00.png",
+            "/games/otgame/sprites/opie/animations/jump/frame-01.png",
+            "/games/otgame/sprites/opie/animations/jump/frame-02.png",
+            "/games/otgame/sprites/opie/animations/jump/frame-03.png",
+            "/games/otgame/sprites/opie/animations/jump/frame-04.png",
+            "/games/otgame/sprites/opie/animations/jump/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/jump.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "punch": {
+          "fps": 18,
+          "loop": false,
+          "input": "S",
+          "activeFrames": [
+            2,
+            3
+          ],
+          "hitStopMs": 65,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/punch/frame-00.png",
+            "/games/otgame/sprites/opie/animations/punch/frame-01.png",
+            "/games/otgame/sprites/opie/animations/punch/frame-02.png",
+            "/games/otgame/sprites/opie/animations/punch/frame-03.png",
+            "/games/otgame/sprites/opie/animations/punch/frame-04.png",
+            "/games/otgame/sprites/opie/animations/punch/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/punch.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "kick": {
+          "fps": 16,
+          "loop": false,
+          "input": "Z",
+          "activeFrames": [
+            3
+          ],
+          "hitStopMs": 80,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/kick/frame-00.png",
+            "/games/otgame/sprites/opie/animations/kick/frame-01.png",
+            "/games/otgame/sprites/opie/animations/kick/frame-02.png",
+            "/games/otgame/sprites/opie/animations/kick/frame-03.png",
+            "/games/otgame/sprites/opie/animations/kick/frame-04.png",
+            "/games/otgame/sprites/opie/animations/kick/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/kick.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "guard_dodge": {
+          "fps": 14,
+          "loop": false,
+          "input": "X",
+          "holdFrame": 2,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/guard_dodge/frame-00.png",
+            "/games/otgame/sprites/opie/animations/guard_dodge/frame-01.png",
+            "/games/otgame/sprites/opie/animations/guard_dodge/frame-02.png",
+            "/games/otgame/sprites/opie/animations/guard_dodge/frame-03.png",
+            "/games/otgame/sprites/opie/animations/guard_dodge/frame-04.png",
+            "/games/otgame/sprites/opie/animations/guard_dodge/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/guard_dodge.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "jump_punch": {
+          "fps": 17,
+          "loop": false,
+          "input": "AS",
+          "activeFrames": [
+            3
+          ],
+          "hitStopMs": 75,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/jump_punch/frame-00.png",
+            "/games/otgame/sprites/opie/animations/jump_punch/frame-01.png",
+            "/games/otgame/sprites/opie/animations/jump_punch/frame-02.png",
+            "/games/otgame/sprites/opie/animations/jump_punch/frame-03.png",
+            "/games/otgame/sprites/opie/animations/jump_punch/frame-04.png",
+            "/games/otgame/sprites/opie/animations/jump_punch/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/jump_punch.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "jump_kick": {
+          "fps": 16,
+          "loop": false,
+          "input": "AZ",
+          "activeFrames": [
+            3
+          ],
+          "hitStopMs": 90,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/jump_kick/frame-00.png",
+            "/games/otgame/sprites/opie/animations/jump_kick/frame-01.png",
+            "/games/otgame/sprites/opie/animations/jump_kick/frame-02.png",
+            "/games/otgame/sprites/opie/animations/jump_kick/frame-03.png",
+            "/games/otgame/sprites/opie/animations/jump_kick/frame-04.png",
+            "/games/otgame/sprites/opie/animations/jump_kick/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/jump_kick.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "hit_knockdown_recover": {
+          "fps": 12,
+          "loop": false,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/hit_knockdown_recover/frame-00.png",
+            "/games/otgame/sprites/opie/animations/hit_knockdown_recover/frame-01.png",
+            "/games/otgame/sprites/opie/animations/hit_knockdown_recover/frame-02.png",
+            "/games/otgame/sprites/opie/animations/hit_knockdown_recover/frame-03.png",
+            "/games/otgame/sprites/opie/animations/hit_knockdown_recover/frame-04.png",
+            "/games/otgame/sprites/opie/animations/hit_knockdown_recover/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/hit_knockdown_recover.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "powerup": {
+          "fps": 12,
+          "loop": false,
+          "input": "X",
+          "requiresState": "regular",
+          "frameCount": 12,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/powerup/frame-00.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-01.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-02.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-03.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-04.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-05.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-06.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-07.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-08.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-09.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-10.png",
+            "/games/otgame/sprites/opie/animations/powerup/frame-11.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/powerup.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "powered_idle": {
+          "fps": 8,
+          "loop": true,
+          "requiresState": "powered",
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/powered_idle/frame-00.png",
+            "/games/otgame/sprites/opie/animations/powered_idle/frame-01.png",
+            "/games/otgame/sprites/opie/animations/powered_idle/frame-02.png",
+            "/games/otgame/sprites/opie/animations/powered_idle/frame-03.png",
+            "/games/otgame/sprites/opie/animations/powered_idle/frame-04.png",
+            "/games/otgame/sprites/opie/animations/powered_idle/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/powered_idle.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "special_sx": {
+          "fps": 18,
+          "loop": false,
+          "input": "SX",
+          "requiresState": "powered",
+          "activeFrames": [
+            2,
+            3,
+            4
+          ],
+          "hitStopMs": 95,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/special_sx/frame-00.png",
+            "/games/otgame/sprites/opie/animations/special_sx/frame-01.png",
+            "/games/otgame/sprites/opie/animations/special_sx/frame-02.png",
+            "/games/otgame/sprites/opie/animations/special_sx/frame-03.png",
+            "/games/otgame/sprites/opie/animations/special_sx/frame-04.png",
+            "/games/otgame/sprites/opie/animations/special_sx/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/special_sx.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "counter_xs": {
+          "fps": 18,
+          "loop": false,
+          "input": "XS",
+          "requiresState": "powered",
+          "activeFrames": [
+            3,
+            4
+          ],
+          "hitStopMs": 105,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/counter_xs/frame-00.png",
+            "/games/otgame/sprites/opie/animations/counter_xs/frame-01.png",
+            "/games/otgame/sprites/opie/animations/counter_xs/frame-02.png",
+            "/games/otgame/sprites/opie/animations/counter_xs/frame-03.png",
+            "/games/otgame/sprites/opie/animations/counter_xs/frame-04.png",
+            "/games/otgame/sprites/opie/animations/counter_xs/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/counter_xs.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "super_zx": {
+          "fps": 20,
+          "loop": false,
+          "input": "ZX",
+          "requiresState": "powered",
+          "activeFrames": [
+            2,
+            3,
+            4
+          ],
+          "hitStopMs": 135,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/super_zx/frame-00.png",
+            "/games/otgame/sprites/opie/animations/super_zx/frame-01.png",
+            "/games/otgame/sprites/opie/animations/super_zx/frame-02.png",
+            "/games/otgame/sprites/opie/animations/super_zx/frame-03.png",
+            "/games/otgame/sprites/opie/animations/super_zx/frame-04.png",
+            "/games/otgame/sprites/opie/animations/super_zx/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/super_zx.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "victory": {
+          "fps": 10,
+          "loop": false,
+          "holdLastFrame": true,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/victory/frame-00.png",
+            "/games/otgame/sprites/opie/animations/victory/frame-01.png",
+            "/games/otgame/sprites/opie/animations/victory/frame-02.png",
+            "/games/otgame/sprites/opie/animations/victory/frame-03.png",
+            "/games/otgame/sprites/opie/animations/victory/frame-04.png",
+            "/games/otgame/sprites/opie/animations/victory/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/victory.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "signature_lunge": {
+          "fps": 16,
+          "loop": false,
+          "input": "X",
+          "requiresState": "powered",
+          "activeFrames": [
+            5,
+            6,
+            7
+          ],
+          "hitStopMs": 145,
+          "frameCount": 12,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-00.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-01.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-02.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-03.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-04.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-05.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-06.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-07.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-08.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-09.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-10.png",
+            "/games/otgame/sprites/opie/animations/signature_lunge/frame-11.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/signature_lunge.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "hit_reaction": {
+          "fps": 14,
+          "loop": false,
+          "frameCount": 3,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/hit_reaction/frame-00.png",
+            "/games/otgame/sprites/opie/animations/hit_reaction/frame-01.png",
+            "/games/otgame/sprites/opie/animations/hit_reaction/frame-02.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/hit_reaction.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "knockdown_recover": {
+          "fps": 11,
+          "loop": false,
+          "frameCount": 6,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/knockdown_recover/frame-00.png",
+            "/games/otgame/sprites/opie/animations/knockdown_recover/frame-01.png",
+            "/games/otgame/sprites/opie/animations/knockdown_recover/frame-02.png",
+            "/games/otgame/sprites/opie/animations/knockdown_recover/frame-03.png",
+            "/games/otgame/sprites/opie/animations/knockdown_recover/frame-04.png",
+            "/games/otgame/sprites/opie/animations/knockdown_recover/frame-05.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/knockdown_recover.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "ko": {
+          "fps": 10,
+          "loop": false,
+          "holdLastFrame": true,
+          "frameCount": 4,
+          "frames": [
+            "/games/otgame/sprites/opie/animations/ko/frame-00.png",
+            "/games/otgame/sprites/opie/animations/ko/frame-01.png",
+            "/games/otgame/sprites/opie/animations/ko/frame-02.png",
+            "/games/otgame/sprites/opie/animations/ko/frame-03.png"
+          ],
+          "strip": "/games/otgame/sprites/opie/strips/ko.png",
+          "frameSizes": [
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            },
+            {
+              "width": 512,
+              "height": 512
+            }
+          ]
+        }
+      },
+      "preview": "/games/otgame/sprites/preview-opie.png"
+    }
+  },
+  "validation": {
+    "transparentFrameCount": 253,
+    "allFrameCornersTransparent": true
+  }
+}

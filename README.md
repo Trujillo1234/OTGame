@@ -1,20 +1,33 @@
-# Penn Run — Tiny Denver Grand Prix
+# Emmy & Opie Arcade
 
-Choose Emmy’s little car or Opie in her walking harness and race a terrain-fitted Capitol Hill loop from 935 Penn to Trader Joe’s, the Colorado State Capitol, around Cheesman Park, and home.
+Two Denver games in one title-card launcher:
 
-## Publish with GitHub Pages
+- **Penn Run** — drive Emmy's little car or run as Opie around the Capitol Hill loop.
+- **Denver Fight Club** — choose Emmy or Opie and battle across Denver arenas.
 
-1. Make the repository public in **Settings → General → Change repository visibility**.
-2. Open **Settings → Pages** and choose **GitHub Actions** as the source.
-3. Run the **Deploy Penn Run to GitHub Pages** workflow from the Actions tab if it did not run automatically.
+## GitHub Pages
 
-The public game URL will be:
+The `main` branch automatically builds and publishes the static arcade at:
 
 `https://trujillo1234.github.io/OTGame/`
 
+The Pages build supports the launcher and direct links to:
+
+- `/OTGame/penn-run/`
+- `/OTGame/denver-fight-club/`
+
 ## Local development
+
+Requires Node.js 22.13 or newer.
 
 ```bash
 npm install
 npm run dev
+```
+
+Validation:
+
+```bash
+npm test
+npm run build:pages
 ```
