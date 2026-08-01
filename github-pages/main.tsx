@@ -16,7 +16,7 @@ const games = [
     title: "Penn Run",
     description:
       "Race Emmy’s little car or run as Opie from Penn to Trader Joe’s, the Capitol, Cheesman Park, and home.",
-    image: `${base}/og.png`,
+    image: `${base}/og.png?v=20260731-3`,
     accent: "race",
     action: "START RACING",
   },
@@ -26,7 +26,7 @@ const games = [
     title: "Denver Fight Club",
     description:
       "Pick Emmy’s pink BJJ power or Opie’s fencing skills and battle across colorful Denver arenas.",
-    image: `${base}/games/otgame/og-denver-fight-club.png`,
+    image: `${base}/games/otgame/og-denver-fight-club.png?v=20260731-3`,
     accent: "fight",
     action: "START FIGHTING",
   },

@@ -38,6 +38,7 @@ test("server-renders the two-title Emmy and Opie arcade", async () => {
   assert.match(html, /href="\/denver-fight-club"/);
   assert.match(html, /Penn Run/);
   assert.match(html, /Denver Fight Club/);
+  assert.match(html, /og\.png\?v=20260731-3/);
   assert.doesNotMatch(html, /codex-preview|Building your site/);
 });
 
@@ -91,6 +92,10 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
     new URL("../app/PennRunGame.css", import.meta.url),
     "utf8",
   );
+  const hubStyles = await readFile(
+    new URL("../app/game-hub.css", import.meta.url),
+    "utf8",
+  );
   assert.doesNotMatch(raceSource, /createOpieHarness|WALKING HARNESS/);
   assert.match(raceSource, /opie-body-and-head/);
   assert.match(raceSource, /colorado-state-capitol-base\.stl/);
@@ -111,4 +116,6 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
   assert.match(raceStyles, /character-option:focus-visible/);
   assert.match(raceStyles, /overflow-y: auto/);
   assert.match(raceStyles, /touch-action: pan-y/);
+  assert.match(hubStyles, /body:has\(\.game-hub\)/);
+  assert.match(hubStyles, /overflow-y: auto/);
 });

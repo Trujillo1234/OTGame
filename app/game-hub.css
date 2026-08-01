@@ -278,8 +278,19 @@
 }
 
 @media (max-width: 760px) {
+  html:has(.game-hub),
+  body:has(.game-hub),
+  #root:has(.game-hub) {
+    min-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .game-hub {
     align-content: start;
+    min-height: 100dvh;
+    overflow: visible;
     padding: 28px 18px 38px;
   }
 
