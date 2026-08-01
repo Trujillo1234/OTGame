@@ -1718,8 +1718,9 @@ function addTraderJoes(scene: THREE.Scene, surfaceHeight: number) {
     bulb.position.set(i, 1.98, -4.55);
     trader.add(bulb);
   }
-  trader.position.set(-41.5, surfaceHeight + 0.04, 50.5);
-  trader.rotation.y = Math.PI / 2;
+  // Put the entrance directly ahead of the northbound pickup lane so the
+  // storefront faces the player as they arrive at Trader Joe's.
+  trader.position.set(-47.44, surfaceHeight + 0.04, 59.4);
   scene.add(trader);
 }
 
@@ -2112,7 +2113,7 @@ export function PennRunGame() {
         addSimplifiedCity(scene, sampleGround);
         addTraderJoes(
           scene,
-          sampleGround(-41.5, 50.5) ?? 0.08,
+          sampleGround(-47.44, 55.5) ?? 0.08,
         );
         addDetailedCapitol(
           scene,
