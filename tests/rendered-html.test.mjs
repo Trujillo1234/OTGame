@@ -67,6 +67,8 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
     "../public/models/little-car-color.glb",
     "../public/models/opie-walking.glb",
     "../public/models/cap-hill/penelopes-tiny-denver-race.3mf",
+    "../public/models/capitol/colorado-state-capitol-base.stl",
+    "../public/models/capitol/colorado-state-capitol-dome.stl",
     "../public/games/otgame/backgrounds/colorado-state-capitol.webp",
     "../public/games/otgame/backgrounds/sixteenth-street.webp",
     "../public/games/otgame/backgrounds/colfax-avenue.webp",
@@ -82,6 +84,8 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
   );
   assert.doesNotMatch(raceSource, /createOpieHarness|WALKING HARNESS/);
   assert.match(raceSource, /opie-body-and-head/);
+  assert.match(raceSource, /colorado-state-capitol-base\.stl/);
+  assert.match(raceSource, /colorado-state-capitol-dome\.stl/);
   assert.match(raceSource, /leftLeg\.rotation\.z/);
   assert.match(raceSource, /b: "boost"/);
   assert.match(raceSource, /driftVelocity/);

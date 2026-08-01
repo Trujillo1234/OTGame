@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { ThreeMFLoader } from "three/examples/jsm/loaders/3MFLoader.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 
 type InputName =
@@ -536,6 +537,102 @@ function addSimplifiedCity(
     mesh.receiveShadow = true;
     scene.add(mesh);
   });
+}
+
+function removePrintedCapitol(mesh: THREE.Mesh) {
+  const geometry = mesh.geometry.clone();
+  const position = geometry.getAttribute("position");
+  if (!position) return;
+  const sourceIndex = geometry.index
+    ? Array.from(geometry.index.array)
+    : Array.from({ length: position.count }, (_, index) => index);
+  const kept: number[] = [];
+  const centroid = new THREE.Vector3();
+  const vertex = new THREE.Vector3();
+
+  for (let index = 0; index < sourceIndex.length; index += 3) {
+    centroid.set(0, 0, 0);
+    for (let corner = 0; corner < 3; corner += 1) {
+      vertex
+        .fromBufferAttribute(position, sourceIndex[index + corner])
+        .applyMatrix4(mesh.matrixWorld);
+      centroid.add(vertex);
+    }
+    centroid.multiplyScalar(1 / 3);
+    const isPrintedCapitol =
+      centroid.x > -66.5 &&
+      centroid.x < -52.5 &&
+      centroid.z > -33 &&
+      centroid.z < -22;
+    if (!isPrintedCapitol) {
+      kept.push(
+        sourceIndex[index],
+        sourceIndex[index + 1],
+        sourceIndex[index + 2],
+      );
+    }
+  }
+
+  geometry.setIndex(kept);
+  geometry.computeBoundingBox();
+  geometry.computeBoundingSphere();
+  mesh.geometry.dispose();
+  mesh.geometry = geometry;
+}
+
+function addDetailedCapitol(scene: THREE.Scene, groundY: number) {
+  const capitol = new THREE.Group();
+  capitol.name = "colorado-state-capitol-detailed";
+  capitol.position.set(-59.25, groundY + 0.04, -27.5);
+
+  const model = new THREE.Group();
+  model.scale.setScalar(0.12);
+  capitol.add(model);
+  const loader = new STLLoader();
+  const addPart = (
+    path: string,
+    material: THREE.MeshStandardMaterial,
+    centerX: number,
+    centerZ: number,
+    y: number,
+  ) => {
+    loader.load(raceAsset(path), (geometry) => {
+      geometry.computeVertexNormals();
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(-centerX, y, -centerZ);
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      model.add(mesh);
+    });
+  };
+
+  addPart(
+    "/models/capitol/colorado-state-capitol-base.stl?v=1",
+    new THREE.MeshStandardMaterial({
+      color: 0xe8e0ca,
+      roughness: 0.76,
+    }),
+    52.5658,
+    43.5658,
+    0,
+  );
+  addPart(
+    "/models/capitol/colorado-state-capitol-dome.stl?v=1",
+    new THREE.MeshStandardMaterial({
+      color: 0xd7a62d,
+      metalness: 0.42,
+      roughness: 0.38,
+    }),
+    10.9105,
+    10.9105,
+    25.5,
+  );
+
+  const label = createLabel("STATE CAPITOL", "#8b6918");
+  label.position.set(0, 9.2, 0);
+  label.scale.set(4.8, 1.2, 1);
+  capitol.add(label);
+  scene.add(capitol);
 }
 
 function addSky(scene: THREE.Scene) {
@@ -1542,58 +1639,6 @@ function addLandmarks(scene: THREE.Scene) {
   trader.position.set(-10, 0.15, 24);
   scene.add(trader);
 
-  const capitol = new THREE.Group();
-  const stone = new THREE.MeshStandardMaterial({
-    color: 0xf0ead9,
-    roughness: 0.72,
-  });
-  const base = new THREE.Mesh(new THREE.BoxGeometry(12, 3.6, 8), stone);
-  base.position.y = 1.8;
-  base.castShadow = true;
-  capitol.add(base);
-  for (let i = -4.2; i <= 4.2; i += 1.7) {
-    const column = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.22, 0.27, 3.1, 12),
-      stone,
-    );
-    column.position.set(i, 3.4, -4.15);
-    column.castShadow = true;
-    capitol.add(column);
-  }
-  const drum = new THREE.Mesh(
-    new THREE.CylinderGeometry(2.1, 2.5, 1.25, 24),
-    stone,
-  );
-  drum.position.y = 4.2;
-  capitol.add(drum);
-  const dome = new THREE.Mesh(
-    new THREE.SphereGeometry(
-      2.05,
-      24,
-      12,
-      0,
-      Math.PI * 2,
-      0,
-      Math.PI / 2,
-    ),
-    new THREE.MeshStandardMaterial({
-      color: 0xd9a929,
-      metalness: 0.55,
-      roughness: 0.34,
-    }),
-  );
-  dome.position.y = 4.82;
-  dome.scale.y = 0.82;
-  dome.castShadow = true;
-  capitol.add(dome);
-  const capitolLabel = createLabel("STATE CAPITOL", "#8b6918");
-  capitolLabel.position.set(0, 8.2, 0);
-  capitolLabel.scale.set(4.8, 1.2, 1);
-  capitol.add(capitolLabel);
-  capitol.position.set(-20, 0.12, -47);
-  capitol.rotation.y = 0.05;
-  scene.add(capitol);
-
   const home = new THREE.Group();
   const homeBody = new THREE.Mesh(
     new THREE.BoxGeometry(10.2, 6.2, 5.6),
@@ -1985,6 +2030,7 @@ export function PennRunGame() {
       raceAsset("/models/cap-hill/penelopes-tiny-denver-race.3mf?v=1"),
       (cityMap) => {
         cityMap.rotation.x = -Math.PI / 2;
+        cityMap.updateMatrixWorld(true);
         cityMap.traverse((object) => {
           if (!(object instanceof THREE.Mesh)) return;
           let layer: THREE.Object3D | null = object;
@@ -1996,6 +2042,7 @@ export function PennRunGame() {
             }
             layer = layer.parent;
           }
+          if (layerName === "landmarks") removePrintedCapitol(object);
           const style = cityPalette[layerName];
           const oldMaterials = Array.isArray(object.material)
             ? object.material
@@ -2032,6 +2079,10 @@ export function PennRunGame() {
           );
         });
         addSimplifiedCity(scene, sampleGround);
+        addDetailedCapitol(
+          scene,
+          sampleGround(-59.25, -27.5) ?? 0.08,
+        );
         car.position.y = (sampleTrack(START.x, START.z) ?? 2.8) + 0.06;
         setMapProgress(100);
         setMapReady(true);
