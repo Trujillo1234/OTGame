@@ -590,13 +590,14 @@ kbd {
 }
 
 .character-option {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   min-width: 0;
   border: 2px solid var(--ink);
   background: #fff9e8;
-  padding: 9px 10px;
+  padding: 9px 42px 9px 10px;
   color: var(--ink);
   font: inherit;
   text-align: left;
@@ -605,10 +606,42 @@ kbd {
 }
 
 .character-option[data-selected="true"] {
+  border-color: var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+  box-shadow:
+    0 0 0 3px var(--cream),
+    0 0 0 6px var(--ink),
+    6px 6px 0 var(--green);
+  transform: translate(-2px, -2px);
+}
+
+.character-option[data-selected="true"]::after {
+  position: absolute;
+  top: 50%;
+  right: 9px;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
   background: var(--green);
   color: var(--cream);
-  box-shadow: 4px 4px 0 var(--ink);
-  transform: translate(-1px, -1px);
+  content: "✓";
+  font-size: 15px;
+  font-weight: 1000;
+  transform: translateY(-50%);
+}
+
+.character-option:focus-visible {
+  outline: 4px solid #f0643b;
+  outline-offset: 5px;
+}
+
+.character-option[data-selected="true"] .character-badge {
+  background: var(--cream);
+  box-shadow: 3px 3px 0 var(--green);
 }
 
 .character-option:disabled {
@@ -1036,7 +1069,7 @@ kbd {
   }
 
   .character-option {
-    padding: 7px 8px;
+    padding: 7px 38px 7px 8px;
   }
 
   .character-badge {
@@ -1068,7 +1101,7 @@ kbd {
   }
 
   .character-option {
-    padding: 6px 8px;
+    padding: 6px 38px 6px 8px;
   }
 
   .brand-name {

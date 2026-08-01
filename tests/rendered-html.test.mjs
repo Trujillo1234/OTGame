@@ -86,6 +86,10 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
     new URL("../app/PennRunGame.tsx", import.meta.url),
     "utf8",
   );
+  const raceStyles = await readFile(
+    new URL("../app/PennRunGame.css", import.meta.url),
+    "utf8",
+  );
   assert.doesNotMatch(raceSource, /createOpieHarness|WALKING HARNESS/);
   assert.match(raceSource, /opie-body-and-head/);
   assert.match(raceSource, /colorado-state-capitol-base\.stl/);
@@ -98,4 +102,6 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
   assert.match(raceSource, /b: "boost"/);
   assert.match(raceSource, /driftVelocity/);
   assert.match(raceSource, /touchProps\("boost"\)/);
+  assert.match(raceStyles, /character-option\[data-selected="true"\]::after/);
+  assert.match(raceStyles, /character-option:focus-visible/);
 });
