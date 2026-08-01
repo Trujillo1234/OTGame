@@ -73,6 +73,7 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
     "../public/models/art-museum/LICENSE.txt",
     "../public/models/cathedral/denver-cathedral.stl",
     "../public/models/cathedral/SOURCE.txt",
+    "../public/images/trader-joes-storefront.webp",
     "../public/games/otgame/backgrounds/colorado-state-capitol.webp",
     "../public/games/otgame/backgrounds/sixteenth-street.webp",
     "../public/games/otgame/backgrounds/colfax-avenue.webp",
@@ -102,6 +103,11 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
   assert.match(raceSource, /b: "boost"/);
   assert.match(raceSource, /driftVelocity/);
   assert.match(raceSource, /touchProps\("boost"\)/);
+  assert.match(raceSource, /input\.forward \|\| input\.boost/);
+  assert.match(raceSource, /trader-joes-storefront\.webp/);
+  assert.match(raceSource, /isDriving && character === "emmy"/);
   assert.match(raceStyles, /character-option\[data-selected="true"\]::after/);
   assert.match(raceStyles, /character-option:focus-visible/);
+  assert.match(raceStyles, /overflow-y: auto/);
+  assert.match(raceStyles, /touch-action: pan-y/);
 });

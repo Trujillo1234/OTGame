@@ -1077,6 +1077,9 @@ function createGameAudio(): AudioController {
     setCharacter: (nextCharacter) => {
       character = nextCharacter;
       if (engine) engine.type = character === "emmy" ? "sawtooth" : "triangle";
+      if (context && engineGain && character === "opie") {
+        engineGain.gain.setTargetAtTime(0.0001, context.currentTime, 0.025);
+      }
       wasBoosting = false;
     },
     setEngine: (speed, isDriving, boosting) => {
@@ -1091,10 +1094,8 @@ function createGameAudio(): AudioController {
         boostActive ? 0.035 : 0.08,
       );
       engineGain.gain.setTargetAtTime(
-        enabled && isDriving
-          ? character === "emmy"
-            ? 0.085 + Math.min(velocity / 58, 0.15) + (boostActive ? 0.07 : 0)
-            : 0.075 + Math.min(velocity / 70, 0.11) + (boostActive ? 0.055 : 0)
+        enabled && isDriving && character === "emmy"
+          ? 0.085 + Math.min(velocity / 58, 0.15) + (boostActive ? 0.07 : 0)
           : 0.0001,
         context.currentTime,
         boostActive ? 0.035 : 0.09,
@@ -1686,21 +1687,19 @@ function addLandmarks(scene: THREE.Scene) {
   traderBuilding.position.y = 2.6;
   traderBuilding.castShadow = true;
   trader.add(traderBuilding);
-  const glassMaterial = new THREE.MeshStandardMaterial({
-    color: 0x243f46,
-    metalness: 0.18,
-    roughness: 0.23,
-  });
-  for (let floor = 0; floor < 2; floor += 1) {
-    for (let column = -3; column <= 3; column += 2) {
-      const window = new THREE.Mesh(
-        new THREE.BoxGeometry(1.45, 1.25, 0.1),
-        glassMaterial,
+  new THREE.TextureLoader().load(
+    raceAsset("/images/trader-joes-storefront.webp?v=1"),
+    (texture) => {
+      texture.colorSpace = THREE.SRGBColorSpace;
+      const facade = new THREE.Mesh(
+        new THREE.PlaneGeometry(8.65, 4.32),
+        new THREE.MeshBasicMaterial({ map: texture }),
       );
-      window.position.set(column, 1.25 + floor * 2.05, -3.25);
-      trader.add(window);
-    }
-  }
+      facade.position.set(0, 2.55, -3.23);
+      facade.rotation.y = Math.PI;
+      trader.add(facade);
+    },
+  );
   const canopy = new THREE.Mesh(
     new THREE.BoxGeometry(8.5, 0.18, 1.7),
     new THREE.MeshStandardMaterial({ color: 0x1c2528, roughness: 0.68 }),
@@ -1719,10 +1718,6 @@ function addLandmarks(scene: THREE.Scene) {
     bulb.position.set(i, 1.98, -4.55);
     trader.add(bulb);
   }
-  const traderLabel = createLabel("TRADER JOE’S", "#b43f35");
-  traderLabel.position.set(0, 4.45, -3.35);
-  traderLabel.scale.set(4.4, 1.1, 1);
-  trader.add(traderLabel);
   trader.position.set(-10, 0.15, 24);
   scene.add(trader);
 
@@ -1908,7 +1903,7 @@ export function PennRunGame() {
       },
       onPointerUp: () => setInput(name, false),
       onPointerCancel: () => setInput(name, false),
-      onPointerLeave: () => setInput(name, false),
+      onLostPointerCapture: () => setInput(name, false),
     }),
     [setInput],
   );
@@ -2290,8 +2285,9 @@ export function PennRunGame() {
 
       if (startedRef.current && !finishLocked) {
         elapsed += delta;
-        const throttle = input.forward ? 1 : input.back ? -0.65 : 0;
-        const boosting = input.boost && input.forward && speed >= 0;
+        const throttle =
+          input.forward || input.boost ? 1 : input.back ? -0.65 : 0;
+        const boosting = input.boost && speed >= 0;
         const acceleration = boosting ? 7.2 : 4.2;
         if (throttle !== 0) speed += throttle * acceleration * delta;
         else speed *= Math.pow(0.18, delta);
@@ -2403,7 +2399,7 @@ export function PennRunGame() {
       gameAudio.setEngine(
         speed,
         startedRef.current && !finishLocked,
-        input.boost && input.forward,
+        input.boost,
       );
 
       const opieMoving =
@@ -2661,7 +2657,7 @@ export function PennRunGame() {
           <kbd>H</kbd> HONK
         </span>
         <span>
-          <kbd>B / SHIFT</kbd> BOOST
+          <kbd>B / SHIFT</kbd> TURBO
         </span>
         <span>
           <kbd>M</kbd> SOUND
@@ -2681,7 +2677,7 @@ export function PennRunGame() {
           </button>
         </div>
         <div className="touch-pedals">
-          <button {...touchProps("boost")} aria-label="Hold for speed boost">
+          <button {...touchProps("boost")} aria-label="Hold for turbo speed">
             BOOST
           </button>
           <button {...touchProps("forward")} aria-label="Accelerate">
