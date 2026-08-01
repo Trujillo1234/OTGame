@@ -23,6 +23,9 @@ const githubPagesBase =
     : "";
 const raceAsset = (path: string) => `${githubPagesBase}${path}`;
 const gameSelectHref = githubPagesBase ? `${githubPagesBase}/` : "/";
+const houseMouseHref = githubPagesBase
+  ? `${githubPagesBase}/house-mouse/`
+  : "/house-mouse";
 
 type HudState = {
   speed: number;
@@ -2731,6 +2734,9 @@ export function PennRunGame() {
                 : `UNFOLDING TINY DENVER ${mapProgress}%`}
               <span>{mapReady ? "↗" : "…"}</span>
             </button>
+            <a className="other-game-link" href={houseMouseHref}>
+              RACE THE HOUSE MOUSE COURSE <span>→</span>
+            </a>
             <a className="other-game-link" href="/denver-fight-club">
               PLAY DENVER FIGHT CLUB <span>→</span>
             </a>

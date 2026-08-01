@@ -2,8 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { PennRunGame } from "../app/PennRunGame";
 import { OTGame } from "../app/otgame/OTGame";
+import { HouseMouseGame } from "../app/house-mouse/HouseMouseGame";
 import "../app/PennRunGame.css";
 import "../app/otgame/otgame.css";
+import "../app/house-mouse/house-mouse.css";
 import "../app/game-hub.css";
 import "./pages.css";
 
@@ -87,6 +89,10 @@ function App() {
   if (path === "/penn-run") {
     document.title = "Penn Run — Tiny Denver Grand Prix";
     return <PennRunGame />;
+  }
+  if (path === "/house-mouse") {
+    document.title = "House Mouse — Race Around Home";
+    return <HouseMouseGame />;
   }
   if (path === "/denver-fight-club" || path === "/otgame") {
     document.title = "Denver Fight Club — Emmy vs. Opie";

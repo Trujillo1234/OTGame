@@ -15,6 +15,7 @@
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
+    "@sparkjsdev/spark": "2.1.0",
     "@types/three": "^0.185.1",
     "drizzle-orm": "0.45.2",
     "next": "16.2.6",

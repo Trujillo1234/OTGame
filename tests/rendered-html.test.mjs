@@ -42,22 +42,28 @@ test("server-renders the two-title Emmy and Opie arcade", async () => {
   assert.doesNotMatch(html, /codex-preview|Building your site/);
 });
 
-test("serves both complete game routes", async () => {
-  const [raceResponse, fightResponse] = await Promise.all([
+test("serves all complete game routes", async () => {
+  const [raceResponse, houseResponse, fightResponse] = await Promise.all([
     render("/penn-run"),
+    render("/house-mouse"),
     render("/denver-fight-club"),
   ]);
   assert.equal(raceResponse.status, 200);
+  assert.equal(houseResponse.status, 200);
   assert.equal(fightResponse.status, 200);
 
-  const [raceHtml, fightHtml] = await Promise.all([
+  const [raceHtml, houseHtml, fightHtml] = await Promise.all([
     raceResponse.text(),
+    houseResponse.text(),
     fightResponse.text(),
   ]);
   assert.match(raceHtml, /Penn Run/);
   assert.match(raceHtml, /THE TINY DENVER GRAND PRIX/);
   assert.match(raceHtml, /BOOST/);
   assert.match(raceHtml, /GAME SELECT/);
+  assert.match(houseHtml, /HOUSE MOUSE/);
+  assert.match(houseHtml, /Race at mouse size/);
+  assert.match(houseHtml, /GAME SELECT/);
   assert.match(fightHtml, /Denver Fight Club/);
   assert.match(fightHtml, /CHOOSE THE LOCATION/);
   assert.match(fightHtml, /GAME SELECT/);
@@ -67,6 +73,7 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
   const requiredAssets = [
     "../public/models/little-car-color.glb",
     "../public/models/opie-walking.glb",
+    "../public/models/house/house1.spz",
     "../public/models/cap-hill/penelopes-tiny-denver-race.3mf",
     "../public/models/capitol/colorado-state-capitol-base.stl",
     "../public/models/capitol/colorado-state-capitol-dome.stl",

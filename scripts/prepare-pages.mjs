@@ -2,7 +2,7 @@ import { copyFile, mkdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const output = resolve("pages-dist");
-const routes = ["penn-run", "denver-fight-club", "otgame"];
+const routes = ["penn-run", "house-mouse", "denver-fight-club", "otgame"];
 
 await Promise.all(
   routes.map(async (route) => {
