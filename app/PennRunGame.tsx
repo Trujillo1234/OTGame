@@ -1678,7 +1678,7 @@ function addBuildings(scene: THREE.Scene) {
   }
 }
 
-function addLandmarks(scene: THREE.Scene) {
+function addTraderJoes(scene: THREE.Scene, surfaceHeight: number) {
   const trader = new THREE.Group();
   const traderBuilding = new THREE.Mesh(
     new THREE.BoxGeometry(8.8, 5.2, 6.4),
@@ -1718,60 +1718,9 @@ function addLandmarks(scene: THREE.Scene) {
     bulb.position.set(i, 1.98, -4.55);
     trader.add(bulb);
   }
-  trader.position.set(-10, 0.15, 24);
+  trader.position.set(-41.5, surfaceHeight + 0.04, 50.5);
+  trader.rotation.y = Math.PI / 2;
   scene.add(trader);
-
-  const home = new THREE.Group();
-  const homeBody = new THREE.Mesh(
-    new THREE.BoxGeometry(10.2, 6.2, 5.6),
-    new THREE.MeshStandardMaterial({ color: 0xdedfd8, roughness: 0.86 }),
-  );
-  homeBody.position.y = 3.1;
-  homeBody.castShadow = true;
-  home.add(homeBody);
-  const homeGlass = new THREE.MeshStandardMaterial({
-    color: 0x2a3c3d,
-    roughness: 0.28,
-    metalness: 0.12,
-  });
-  for (let floor = 0; floor < 3; floor += 1) {
-    for (const column of [-3.7, -2.1, 2.1, 3.7]) {
-      const window = new THREE.Mesh(
-        new THREE.BoxGeometry(1.15, 1.15, 0.09),
-        homeGlass,
-      );
-      window.position.set(column, 1.25 + floor * 1.85, -2.86);
-      home.add(window);
-    }
-  }
-  const entry = new THREE.Mesh(
-    new THREE.BoxGeometry(2.15, 3.35, 0.35),
-    new THREE.MeshStandardMaterial({ color: 0x1f2a29, roughness: 0.58 }),
-  );
-  entry.position.set(0, 1.68, -2.92);
-  home.add(entry);
-  for (const side of [-1, 1]) {
-    const garage = new THREE.Mesh(
-      new THREE.BoxGeometry(2.85, 1.45, 0.13),
-      new THREE.MeshStandardMaterial({ color: 0xc5c9c2, roughness: 0.86 }),
-    );
-    garage.position.set(side * 3.35, 0.78, -2.93);
-    home.add(garage);
-  }
-  for (let step = 0; step < 3; step += 1) {
-    const stair = new THREE.Mesh(
-      new THREE.BoxGeometry(2.3 + step * 0.25, 0.18, 0.55),
-      new THREE.MeshStandardMaterial({ color: 0x7e786c, roughness: 0.96 }),
-    );
-    stair.position.set(0, 0.1 + step * 0.18, -3.4 - step * 0.43);
-    home.add(stair);
-  }
-  const homeLabel = createLabel("935 PENN", "#2d604b");
-  homeLabel.position.set(0, 4.4, -3.05);
-  homeLabel.scale.set(2.2, 0.55, 1);
-  home.add(homeLabel);
-  home.position.set(14.2, 0.15, 2);
-  scene.add(home);
 }
 
 function addCheckpoint(
@@ -2161,6 +2110,10 @@ export function PennRunGame() {
           );
         });
         addSimplifiedCity(scene, sampleGround);
+        addTraderJoes(
+          scene,
+          sampleGround(-41.5, 50.5) ?? 0.08,
+        );
         addDetailedCapitol(
           scene,
           sampleGround(-59.25, -27.5) ?? 0.08,

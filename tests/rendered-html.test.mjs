@@ -105,6 +105,7 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
   assert.match(raceSource, /touchProps\("boost"\)/);
   assert.match(raceSource, /input\.forward \|\| input\.boost/);
   assert.match(raceSource, /trader-joes-storefront\.webp/);
+  assert.match(raceSource, /addTraderJoes\(/);
   assert.match(raceSource, /isDriving && character === "emmy"/);
   assert.match(raceStyles, /character-option\[data-selected="true"\]::after/);
   assert.match(raceStyles, /character-option:focus-visible/);
