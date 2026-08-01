@@ -1,0 +1,8 @@
+Denver Art Museum 3D model
+Creator: Andy Zimmerman (surfmaster96)
+Source: https://www.thingiverse.com/thing:199067
+Archive source: https://archive.org/details/thingiverse-199067
+License: Creative Commons Attribution-ShareAlike 3.0
+License URL: https://creativecommons.org/licenses/by-sa/3.0/
+
+The in-game copy is repositioned, rescaled, and assigned new materials.

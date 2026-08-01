@@ -539,7 +539,7 @@ function addSimplifiedCity(
   });
 }
 
-function removePrintedCapitol(mesh: THREE.Mesh) {
+function removeReplacedLandmarks(mesh: THREE.Mesh) {
   const geometry = mesh.geometry.clone();
   const position = geometry.getAttribute("position");
   if (!position) return;
@@ -564,7 +564,12 @@ function removePrintedCapitol(mesh: THREE.Mesh) {
       centroid.x < -52.5 &&
       centroid.z > -33 &&
       centroid.z < -22;
-    if (!isPrintedCapitol) {
+    const isPrintedArtMuseum =
+      centroid.x > -82 &&
+      centroid.x < -70.5 &&
+      centroid.z > -19 &&
+      centroid.z < -12;
+    if (!isPrintedCapitol && !isPrintedArtMuseum) {
       kept.push(
         sourceIndex[index],
         sourceIndex[index + 1],
@@ -633,6 +638,41 @@ function addDetailedCapitol(scene: THREE.Scene, groundY: number) {
   label.scale.set(4.8, 1.2, 1);
   capitol.add(label);
   scene.add(capitol);
+}
+
+function addDetailedArtMuseum(scene: THREE.Scene, groundY: number) {
+  const museum = new THREE.Group();
+  museum.name = "denver-art-museum-detailed";
+  museum.position.set(-76.2, groundY + 0.04, -15.4);
+
+  new STLLoader().load(
+    raceAsset("/models/art-museum/denver-art-museum.stl?v=1"),
+    (geometry) => {
+      geometry.center();
+      geometry.computeVertexNormals();
+      const mesh = new THREE.Mesh(
+        geometry,
+        new THREE.MeshStandardMaterial({
+          color: 0xc8d0cf,
+          metalness: 0.32,
+          roughness: 0.48,
+          flatShading: true,
+        }),
+      );
+      mesh.rotation.x = -Math.PI / 2;
+      mesh.scale.set(0.2, 0.2, 0.36);
+      mesh.position.y = 2.65;
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      museum.add(mesh);
+    },
+  );
+
+  const label = createLabel("DENVER ART MUSEUM", "#526c70");
+  label.position.set(0, 6.35, 0);
+  label.scale.set(5.3, 1.15, 1);
+  museum.add(label);
+  scene.add(museum);
 }
 
 function addSky(scene: THREE.Scene) {
@@ -2042,7 +2082,7 @@ export function PennRunGame() {
             }
             layer = layer.parent;
           }
-          if (layerName === "landmarks") removePrintedCapitol(object);
+          if (layerName === "landmarks") removeReplacedLandmarks(object);
           const style = cityPalette[layerName];
           const oldMaterials = Array.isArray(object.material)
             ? object.material
@@ -2082,6 +2122,10 @@ export function PennRunGame() {
         addDetailedCapitol(
           scene,
           sampleGround(-59.25, -27.5) ?? 0.08,
+        );
+        addDetailedArtMuseum(
+          scene,
+          sampleGround(-76.2, -15.4) ?? 0.08,
         );
         car.position.y = (sampleTrack(START.x, START.z) ?? 2.8) + 0.06;
         setMapProgress(100);
@@ -2682,6 +2726,17 @@ export function PennRunGame() {
             </a>
             <small>
               Emmy drives · Opie runs · Press B or hold BOOST for extra speed
+            </small>
+            <small className="model-credit">
+              Museum model by{" "}
+              <a
+                href="https://www.thingiverse.com/thing:199067"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Andy Zimmerman
+              </a>{" "}
+              · CC BY-SA 3.0
             </small>
           </div>
         </section>

@@ -69,6 +69,8 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
     "../public/models/cap-hill/penelopes-tiny-denver-race.3mf",
     "../public/models/capitol/colorado-state-capitol-base.stl",
     "../public/models/capitol/colorado-state-capitol-dome.stl",
+    "../public/models/art-museum/denver-art-museum.stl",
+    "../public/models/art-museum/LICENSE.txt",
     "../public/games/otgame/backgrounds/colorado-state-capitol.webp",
     "../public/games/otgame/backgrounds/sixteenth-street.webp",
     "../public/games/otgame/backgrounds/colfax-avenue.webp",
@@ -86,6 +88,8 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
   assert.match(raceSource, /opie-body-and-head/);
   assert.match(raceSource, /colorado-state-capitol-base\.stl/);
   assert.match(raceSource, /colorado-state-capitol-dome\.stl/);
+  assert.match(raceSource, /denver-art-museum\.stl/);
+  assert.match(raceSource, /CC BY-SA 3\.0/);
   assert.match(raceSource, /leftLeg\.rotation\.z/);
   assert.match(raceSource, /b: "boost"/);
   assert.match(raceSource, /driftVelocity/);

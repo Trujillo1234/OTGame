@@ -708,6 +708,16 @@ kbd {
   text-transform: uppercase;
 }
 
+.start-card .model-credit {
+  margin-top: 7px;
+  opacity: 0.72;
+}
+
+.model-credit a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+
 .other-game-link {
   display: flex;
   align-items: center;
