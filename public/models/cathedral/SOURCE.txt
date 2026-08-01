@@ -1,0 +1,5 @@
+Denver Cathedral model by MiniWorld3D.
+
+The STL source file was supplied by the project owner for integration into
+Penn Run. This web copy was simplified from 50,462 to 28,571 triangles for
+real-time rendering.

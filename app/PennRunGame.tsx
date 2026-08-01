@@ -493,7 +493,15 @@ function addSimplifiedCity(
   for (let x = -72; x <= 68; x += 7) {
     for (let z = -67; z <= 68; z += 7) {
       const variation = seeded(x * 4.73 + z * 2.17);
-      if (variation < 0.47 || distanceToTrackSquared(x, z) < 34) continue;
+      const isCathedralFootprint =
+        Math.abs(x + 47.1) < 6.5 && Math.abs(z + 35.8) < 7;
+      if (
+        variation < 0.47 ||
+        distanceToTrackSquared(x, z) < 34 ||
+        isCathedralFootprint
+      ) {
+        continue;
+      }
       const ground = sampleGround(x, z);
       if (ground === null) continue;
       const width = 2.7 + seeded(x * 7 + z) * 1.8;
@@ -569,7 +577,12 @@ function removeReplacedLandmarks(mesh: THREE.Mesh) {
       centroid.x < -70.5 &&
       centroid.z > -19 &&
       centroid.z < -12;
-    if (!isPrintedCapitol && !isPrintedArtMuseum) {
+    const isPrintedCathedral =
+      centroid.x > -52.5 &&
+      centroid.x < -41.5 &&
+      centroid.z > -41.5 &&
+      centroid.z < -30.5;
+    if (!isPrintedCapitol && !isPrintedArtMuseum && !isPrintedCathedral) {
       kept.push(
         sourceIndex[index],
         sourceIndex[index + 1],
@@ -673,6 +686,41 @@ function addDetailedArtMuseum(scene: THREE.Scene, groundY: number) {
   label.scale.set(5.3, 1.15, 1);
   museum.add(label);
   scene.add(museum);
+}
+
+function addDetailedCathedral(scene: THREE.Scene, groundY: number) {
+  const cathedral = new THREE.Group();
+  cathedral.name = "cathedral-basilica-detailed";
+  cathedral.position.set(-47.1, groundY + 0.04, -35.8);
+
+  new STLLoader().load(
+    raceAsset("/models/cathedral/denver-cathedral.stl?v=1"),
+    (geometry) => {
+      geometry.center();
+      geometry.computeVertexNormals();
+      const mesh = new THREE.Mesh(
+        geometry,
+        new THREE.MeshStandardMaterial({
+          color: 0xd8c6a6,
+          roughness: 0.82,
+          metalness: 0.02,
+          flatShading: true,
+        }),
+      );
+      mesh.rotation.x = -Math.PI / 2;
+      mesh.scale.setScalar(0.125);
+      mesh.position.y = 4.43;
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      cathedral.add(mesh);
+    },
+  );
+
+  const label = createLabel("DENVER CATHEDRAL", "#765c42");
+  label.position.set(0, 9.8, 0);
+  label.scale.set(4.8, 1.1, 1);
+  cathedral.add(label);
+  scene.add(cathedral);
 }
 
 function addSky(scene: THREE.Scene) {
@@ -2127,6 +2175,10 @@ export function PennRunGame() {
           scene,
           sampleGround(-76.2, -15.4) ?? 0.08,
         );
+        addDetailedCathedral(
+          scene,
+          sampleGround(-47.1, -35.8) ?? 0.08,
+        );
         car.position.y = (sampleTrack(START.x, START.z) ?? 2.8) + 0.06;
         setMapProgress(100);
         setMapReady(true);
@@ -2737,6 +2789,9 @@ export function PennRunGame() {
                 Andy Zimmerman
               </a>{" "}
               · CC BY-SA 3.0
+            </small>
+            <small className="model-credit">
+              Cathedral model by MiniWorld3D · provided by the project owner
             </small>
           </div>
         </section>
