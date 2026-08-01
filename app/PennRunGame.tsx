@@ -495,10 +495,19 @@ function addSimplifiedCity(
       const variation = seeded(x * 4.73 + z * 2.17);
       const isCathedralFootprint =
         Math.abs(x + 47.1) < 6.5 && Math.abs(z + 35.8) < 7;
+      const isCapitolOpenSpace =
+        Math.abs(x + 59.25) < 17 && Math.abs(z + 27.5) < 15;
+      const isArtMuseumOpenSpace =
+        Math.abs(x + 76.2) < 15 && Math.abs(z + 15.4) < 14;
+      const isCivicViewCorridor =
+        x < -51 && x > -76 && z > -25 && z < -8;
       if (
         variation < 0.47 ||
         distanceToTrackSquared(x, z) < 34 ||
-        isCathedralFootprint
+        isCathedralFootprint ||
+        isCapitolOpenSpace ||
+        isArtMuseumOpenSpace ||
+        isCivicViewCorridor
       ) {
         continue;
       }
@@ -673,8 +682,8 @@ function addDetailedArtMuseum(scene: THREE.Scene, groundY: number) {
         }),
       );
       mesh.rotation.x = -Math.PI / 2;
-      mesh.scale.set(0.2, 0.2, 0.36);
-      mesh.position.y = 2.65;
+      mesh.scale.set(0.28, 0.28, 0.5);
+      mesh.position.y = 3.7;
       mesh.castShadow = true;
       mesh.receiveShadow = true;
       museum.add(mesh);
@@ -682,8 +691,8 @@ function addDetailedArtMuseum(scene: THREE.Scene, groundY: number) {
   );
 
   const label = createLabel("DENVER ART MUSEUM", "#526c70");
-  label.position.set(0, 6.35, 0);
-  label.scale.set(5.3, 1.15, 1);
+  label.position.set(0, 8.1, 0);
+  label.scale.set(6.2, 1.35, 1);
   museum.add(label);
   scene.add(museum);
 }
