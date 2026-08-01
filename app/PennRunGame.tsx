@@ -707,9 +707,8 @@ function addDetailedCathedral(scene: THREE.Scene, groundY: number) {
           flatShading: true,
         }),
       );
-      mesh.rotation.x = -Math.PI / 2;
       mesh.scale.setScalar(0.125);
-      mesh.position.y = 4.43;
+      mesh.position.y = 4.88;
       mesh.castShadow = true;
       mesh.receiveShadow = true;
       cathedral.add(mesh);
