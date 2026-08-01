@@ -128,7 +128,7 @@ function makeRacer(scene: THREE.Scene, racer: Racer) {
       const scaled = new THREE.Box3().setFromObject(model);
       const center = scaled.getCenter(new THREE.Vector3());
       model.position.set(-center.x, -scaled.min.y, -center.z);
-      if (racer === "opie") model.rotation.y = -Math.PI / 2;
+      model.rotation.y = -Math.PI / 2;
       model.traverse((object) => {
         if (object instanceof THREE.Mesh) object.castShadow = true;
       });
@@ -239,7 +239,7 @@ export function HouseMouseGame() {
       sparkRenderer = spark;
       scene.add(spark);
       const house = new SplatMesh({
-        url: asset("/models/house/house1.spz?v=2"),
+        url: asset("/models/house/house1.spz?v=3"),
         lod: true,
         onProgress: (event) => {
           if (event.lengthComputable) setProgress(Math.round((event.loaded / event.total) * 100));
