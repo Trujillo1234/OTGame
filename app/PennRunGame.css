@@ -1,4 +1,11 @@
 .game-shell {
+  --ink: #17221c;
+  --paper: #f4efd9;
+  --cream: #fff9e8;
+  --orange: #df6536;
+  --yellow: #f4c847;
+  --green: #2d604b;
+
   position: relative;
   width: 100vw;
   height: 100svh;

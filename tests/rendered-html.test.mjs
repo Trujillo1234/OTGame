@@ -116,6 +116,8 @@ test("keeps the race models and Denver fight arenas in the release", async () =>
   assert.match(raceSource, /isCivicViewCorridor/);
   assert.match(raceSource, /isDriving && character === "emmy"/);
   assert.match(raceStyles, /character-option\[data-selected="true"\]::after/);
+  assert.match(raceStyles, /--paper: #f4efd9/);
+  assert.match(raceStyles, /--cream: #fff9e8/);
   assert.match(raceStyles, /character-option:focus-visible/);
   assert.match(raceStyles, /overflow-y: auto/);
   assert.match(raceStyles, /touch-action: pan-y/);
